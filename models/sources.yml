@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: Raw  # Name of your source (could be any name)
+    description: "Raw data from the BigQuery dataset"
+    tables:
+        - name: Raw_Listings  # Table name (make sure it matches the table in BigQuery)
+          description: "Details of airbnb listings"
+    
+        - name: Raw_Hosts
+          description: 'Details of hosts'
+        
+        - name: Raw_Reviews
+          description: 'Customer reviews of their stay'
