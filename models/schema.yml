@@ -19,3 +19,12 @@ models:
         data_tests:
           - unique
           - not_null
+  
+  - name: src_reviews
+    description: "Details of airbnb guests reviews on their stay experience "
+    columns:
+      - name: listing_id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
