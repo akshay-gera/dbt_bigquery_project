@@ -1,3 +1,5 @@
+
+ 
  WITH raw_reviews AS(
     SELECT
         listing_id,
@@ -6,7 +8,7 @@
         comments,
         sentiment
     FROM
-        {{ source('Raw', 'Raw_Reviews') }}
+        {{ source('Raw', 'raw_reviews_permanent') }}
  )
 SELECT 
     *

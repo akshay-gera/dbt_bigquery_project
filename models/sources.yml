@@ -10,5 +10,5 @@ sources:
         - name: Raw_Hosts
           description: 'Details of hosts'
         
-        - name: Raw_Reviews
+        - name: raw_reviews_permanent
           description: 'Customer reviews of their stay'
