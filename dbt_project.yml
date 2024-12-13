@@ -34,3 +34,13 @@ models:
     # Config indicated by + and applies to all files under models/example/
     src_listings:
       +materialized: view
+    
+    src_hosts:
+      +materialized: view
+    
+    src_reviews:
+      +materialized: view
+
+    dim:
+      dim_listings_cleansed:
+        +materialized: table
