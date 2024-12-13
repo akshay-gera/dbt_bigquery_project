@@ -34,3 +34,7 @@ models:
     # Config indicated by + and applies to all files under models/example/
     src_listings:
       +materialized: view
+    
+    dim:
+      dim_hosts:
+        +materialized: table
