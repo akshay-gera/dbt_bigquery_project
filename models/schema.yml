@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: src_listings
+    description: "Details of airbnb listings"
+    columns:
+      - name: listing_id
+        description: "The primary key for this table"
+        data_tests:
+          - not_null
+          - unique
+        data_type: int64
+      - name: listing_url
+        description: URL of the listing
+        data_type: string
+        quote: true
+      - name: listing_name
+        description: Name of the listing
+        data_type: string
+        quote: true
+      - name: listing_room_type
+        description: Type of the room
+        data_type: string
+        quote: true
+      - name: minimum_nights
+        data_type: int64
+        quote: true
+      - name: host_id
+        data_type: int64
+        quote: true
+      - name: listing_price
+        data_type: int64
+        quote: true
+      - name: created_at
+        description: Listing created time
+        data_type: timestamp
+        quote: true
+      - name: updated_at
+        description: Last updated time of listing
+        data_type: timestamp
+        quote: true
+
+  - name: src_hosts
+    description: "Details of airbnb hosts with listings"
+    columns:
+      - name: host_id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: src_reviews
+    description: "Details of airbnb guests reviews on their stay experience "
+    columns:
+      - name: listing_id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
