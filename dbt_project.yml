@@ -35,6 +35,7 @@ models:
     src_listings:
       +materialized: view
     
+
     src_hosts:
       +materialized: view
     
@@ -43,4 +44,7 @@ models:
 
     dim:
       dim_listings_cleansed:
+        +materialized: table
+   
+      dim_hosts:
         +materialized: table
