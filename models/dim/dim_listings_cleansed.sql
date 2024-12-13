@@ -1,7 +1,7 @@
 WITH src_listings AS (
     SELECT 
         *
-     FROM  `dbt-integration-444313.Dev.src_listings`
+     FROM  {{ ref('src_listings') }}
 )
 SELECT 
     listing_id,
