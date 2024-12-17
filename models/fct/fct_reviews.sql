@@ -2,25 +2,29 @@
   config(
     materialized = 'incremental',
     on_schema_change = 'fail',
-    )
+  )
 }}
 
-WITH src_reviews AS(
+WITH src_reviews AS (
     SELECT
-        *
+        listing_id,
+        date AS review_date,
+        reviewer_name,
+        comments AS review_text,
+        sentiment
     FROM
         {{ ref('src_reviews') }}
+    WHERE comments IS NOT NULL
 )
+
 SELECT 
     listing_id,
-    date AS review_date,
+    review_date,
     reviewer_name,
-    comments AS review_text,
+    review_text,
     sentiment
 FROM src_reviews
-WHERE comments is not null
 
 {% if is_incremental() %}
-  AND date >= (select max(date) from {{ this }})
-  
+  WHERE review_date > (SELECT MAX(review_date) FROM {{ this }})
 {% endif %}
