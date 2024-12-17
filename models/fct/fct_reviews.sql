@@ -1,10 +1,16 @@
+/*
 {{
   config(
     materialized = 'incremental',
     on_schema_change = 'fail',
   )
 }}
-
+*/
+{{
+  config(
+    materialized = 'table',
+    )
+}}
 WITH src_reviews AS (
     SELECT
         listing_id,
@@ -25,6 +31,8 @@ SELECT
     sentiment
 FROM src_reviews
 
+/*
 {% if is_incremental() %}
   WHERE review_date > (SELECT MAX(review_date) FROM {{ this }})
 {% endif %}
+*/
