@@ -9,6 +9,7 @@
 {{
   config(
     materialized = 'table',
+    on_schema_change = 'fail'
     )
 }}
 WITH src_reviews AS (
