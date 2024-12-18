@@ -27,13 +27,11 @@ SELECT
     l.listing_room_type,
     l.minimum_nights,
     l.price,
-    l.listing_created_at,
-    l.listing_updated_at,
     l.host_id,
     h.host_name,
     h.is_superhost,
-    h.host_created_at,
-    h.host_updated_at
+    GREATEST(l.listing_created_at, h.host_created_at) AS created_at,
+    GREATEST(h.host_updated_at, l.listing_updated_at) AS updated_at
 FROM
     listings AS l
 LEFT JOIN
