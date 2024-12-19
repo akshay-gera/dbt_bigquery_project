@@ -10,31 +10,39 @@ models:
           - not_null
           - unique
         data_type: int64
+
       - name: listing_url
         description: URL of the listing
         data_type: string
         quote: true
+
       - name: listing_name
         description: Name of the listing
         data_type: string
         quote: true
+
       - name: listing_room_type
         description: Type of the room
         data_type: string
         quote: true
+
       - name: minimum_nights
         data_type: int64
         quote: true
+
       - name: host_id
         data_type: int64
         quote: true
+
       - name: listing_price
         data_type: int64
         quote: true
+
       - name: created_at
         description: Listing created time
         data_type: timestamp
         quote: true
+
       - name: updated_at
         description: Last updated time of listing
         data_type: timestamp
@@ -63,18 +71,22 @@ models:
         description: Unique host id
         data_type: int64
         quote: true
+
       - name: host_name
         description: Name of host
         data_type: string
         quote: true
+
       - name: is_superhost
         description: A superhost is a responsive and well rate host
         data_type: boolean
         quote: true
+
       - name: created_at
         description: Host created timestamp
         data_type: timestamp
         quote: true
+
       - name: updated_at
         description: Last updated info about the host
         data_type: timestamp
@@ -87,63 +99,107 @@ models:
         description: Unique listing id
         data_type: int64
         quote: true
+
       - name: listing_name
         data_type: string
         quote: true
+
       - name: listing_room_type
         description: Type of the room (apartment, building, house)
         data_type: string
         quote: true
+
       - name: minimum_nights
         description: Minimum nights a guest has to book for that listing
         data_type: int64
         quote: true
+
       - name: host_id
         description: Unique id of the assoicated host with the listing
         data_type: int64
         quote: true
+
       - name: price
         description: Per night price (Euros) for the stay
         data_type: numeric
         quote: true
+
       - name: created_at
         description: Listing created timestamp
         data_type: timestamp
         quote: true
+
       - name: updated_at
         description: Last updated info about the listing
         data_type: timestamp
         quote: true
+
+
   - name: dim_listings_with_hosts
     description: Joined table Dim_Listings and Dim_Hosts to get a combined dimension table about each listing id
     columns:
       - name: listing_id
         data_type: int64
         quote: true
+
       - name: listing_name
         data_type: string
         quote: true
+
       - name: listing_room_type
         data_type: string
         quote: true
+
       - name: minimum_nights
         data_type: int64
         quote: true
+
       - name: price
         data_type: numeric
         quote: true
+
       - name: host_id
         data_type: int64
         quote: true
+
       - name: host_name
         data_type: string
         quote: true
+
       - name: is_superhost
         data_type: boolean
         quote: true
+
       - name: created_at
         data_type: timestamp
         quote: true
+
       - name: updated_at
         data_type: timestamp
+        quote: true
+
+
+  - name: fct_reviews
+    description: FACT table recording reviews posted by staying guests in the airbnb listings
+    columns:
+      - name: listing_id
+        data_type: int64
+        quote: true
+
+      - name: review_date
+        data_type: timestamp
+        quote: true
+
+      - name: reviewer_name
+        data_type: string
+        quote: true
+
+      - name: review_text
+        description: Text of the review message written by the guest
+        data_type: string
+        quote: true
+
+      - name: sentiment
+        description: "Kind of sentiment of the text: 'Positive' , 'Negative' or 'Neutral'"
+        data_type: string
         quote: true
