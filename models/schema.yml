@@ -117,10 +117,10 @@ models:
   - name: dim_listings_with_hosts
     description: Joined table Dim_Listings and Dim_Hosts to get a combined dimension table about each listing id
     columns:
-      name: listing_id
-      data_type: int64
-      quote: true
-      - name: listing_name
+      - name: listing_id
+        data_type: int64
+        quote: true
+      - name: listinsg_name
         data_type: string
         quote: true
       - name: listing_room_type
