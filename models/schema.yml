@@ -114,3 +114,36 @@ models:
         description: Last updated info about the listing
         data_type: timestamp
         quote: true
+  - name: dim_listings_with_hosts
+    description: Joined table Dim_Listings and Dim_Hosts to get a combined dimension table about each listing id
+    columns:
+      name: listing_id
+      data_type: int64
+      quote: true
+      - name: listing_name
+        data_type: string
+        quote: true
+      - name: listing_room_type
+        data_type: string
+        quote: true
+      - name: minimum_nights
+        data_type: int64
+        quote: true
+      - name: price
+        data_type: numeric
+        quote: true
+      - name: host_id
+        data_type: int64
+        quote: true
+      - name: host_name
+        data_type: string
+        quote: true
+      - name: is_superhost
+        data_type: boolean
+        quote: true
+      - name: created_at
+        data_type: timestamp
+        quote: true
+      - name: updated_at
+        data_type: timestamp
+        quote: true
