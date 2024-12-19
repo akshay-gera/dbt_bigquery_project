@@ -120,7 +120,7 @@ models:
       - name: listing_id
         data_type: int64
         quote: true
-      - name: listinsg_name
+      - name: listing_name
         data_type: string
         quote: true
       - name: listing_room_type
