@@ -57,3 +57,60 @@ models:
         data_tests:
           - unique
           - not_null
+  - name: dim_hosts
+    columns:
+      - name: host_id
+        description: Unique host id
+        data_type: int64
+        quote: true
+      - name: host_name
+        description: Name of host
+        data_type: string
+        quote: true
+      - name: is_superhost
+        description: A superhost is a responsive and well rate host
+        data_type: boolean
+        quote: true
+      - name: created_at
+        description: Host created timestamp
+        data_type: timestamp
+        quote: true
+      - name: updated_at
+        description: Last updated info about the host
+        data_type: timestamp
+        quote: true
+
+  - name: dim_listings_cleansed
+    description: Attributes about each listing we have
+    columns:
+      - name: listing_id
+        description: Unique listing id
+        data_type: int64
+        quote: true
+      - name: listing_name
+        data_type: string
+        quote: true
+      - name: listing_room_type
+        description: Type of the room (apartment, building, house)
+        data_type: string
+        quote: true
+      - name: minimum_nights
+        description: Minimum nights a guest has to book for that listing
+        data_type: int64
+        quote: true
+      - name: host_id
+        description: Unique id of the assoicated host with the listing
+        data_type: int64
+        quote: true
+      - name: price
+        description: Per night price (Euros) for the stay
+        data_type: numeric
+        quote: true
+      - name: created_at
+        description: Listing created timestamp
+        data_type: timestamp
+        quote: true
+      - name: updated_at
+        description: Last updated info about the listing
+        data_type: timestamp
+        quote: true
