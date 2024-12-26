@@ -1,0 +1,6 @@
+version: 2
+
+data_tests:
+  - name: dim_listings_minimum_nights
+    description: "Runs a singluar test on the dim_listings_cleansed to ensure that no record has minimum nights < 1. The test passes only when result is 0 of the query in that test"
+    
