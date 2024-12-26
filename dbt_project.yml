@@ -41,4 +41,6 @@ models:
         +materialized: table
     src:
         +materialized: ephemeral
+    mart:
+        +materialized: table
 

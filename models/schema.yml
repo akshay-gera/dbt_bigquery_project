@@ -134,7 +134,6 @@ models:
         data_type: timestamp
         quote: true
 
-
   - name: dim_listings_with_hosts
     description: Joined table Dim_Listings and Dim_Hosts to get a combined dimension table about each listing id
     columns:
@@ -178,7 +177,6 @@ models:
         data_type: timestamp
         quote: true
 
-
   - name: fct_reviews
     description: FACT table recording reviews posted by staying guests in the airbnb listings
     columns:
@@ -201,5 +199,29 @@ models:
 
       - name: sentiment
         description: "Kind of sentiment of the text: 'Positive' , 'Negative' or 'Neutral'"
+        data_type: string
+        quote: true
+  - name: mart_fullmoon_reviews
+    description: Data mart table based on fct_reviews having additional column of whether the night was full moon or not
+    columns:
+      - name: listing_id
+        description: Listing id of the listing being reviewed by the guest
+        data_type: int64
+        quote: true
+      - name: review_date
+        description: Date of review posted by the guest
+        data_type: timestamp
+        quote: true
+      - name: reviewer_name
+        data_type: string
+        quote: true
+      - name: review_text
+        data_type: string
+        quote: true
+      - name: sentiment
+        data_type: string
+        quote: true
+      - name: is_full_moon
+        description: If the night of the stay was a full moon night or not. We created a join with full moon dates seed file and joined on review date by incrementing full moon date by 1 because reviews are posted on next day of stay usually
         data_type: string
         quote: true
