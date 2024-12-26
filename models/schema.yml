@@ -225,3 +225,52 @@ models:
         description: If the night of the stay was a full moon night or not. We created a join with full moon dates seed file and joined on review date by incrementing full moon date by 1 because reviews are posted on next day of stay usually
         data_type: string
         quote: true
+
+snapshots:
+  - name: scd_raw_listings
+    description: Snapshot table to track changes in Raw_Listings table. Any time a field in raw_listings table changes, we'll have another record populated for that listing id with a new update_at field. This enables us to keep a track of historic changes taking palce of each listing id
+    columns:
+      - name: id
+        description: Listing ID
+        data_type: int64
+        quote: true
+      - name: listing_url
+        data_type: string
+        quote: true
+      - name: name
+        data_type: string
+        quote: true
+      - name: room_type
+        data_type: string
+        quote: true
+      - name: minimum_nights
+        data_type: int64
+        quote: true
+      - name: host_id
+        data_type: int64
+        quote: true
+      - name: price
+        data_type: int64
+        quote: true
+      - name: created_at
+        data_type: timestamp
+        quote: true
+      - name: updated_at
+        description: Last updated time of listing
+        data_type: timestamp
+        quote: true
+      - name: dbt_scd_id
+        description: Internally created dbt hashed ID
+        data_type: string
+        quote: true
+      - name: dbt_updated_at
+        data_type: timestamp
+        quote: true
+      - name: dbt_valid_from
+        description: For original record  dbt_valid_from= 'created_at' . For new record dbt_valid_from= 'updated_at'
+        data_type: timestamp
+        quote: true
+      - name: dbt_valid_to
+        description: If there is no update on the listing, then for original record  dbt_valid_to= 'null' . If there is change, then for original record dbt_valid_to= 'updated_at' and new record dbt_valid_to = null
+        data_type: timestamp
+        quote: true
