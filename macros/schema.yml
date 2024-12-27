@@ -12,5 +12,16 @@ macros:
           type: Relation
           description: >
             The name of the model to check for NULL values. This should be a valid name of dbt model
+    
+    - name: positive_value
+      description: >
+            This macro returns rows in a model where a specified column contains value less than 1
+            It is also applicable on a single column
+
+      arguments:
+        - name: model, column name
+          type: Relation
+          description: >
+            The macro takes in valid dbt model name and the column name in that model to run on 
         
     
