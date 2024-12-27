@@ -118,6 +118,8 @@ models:
       - name: minimum_nights
         description: Minimum nights a guest has to book for that listing
         data_type: int64
+        tests:
+          - positive_value
          
 
       - name: host_id
