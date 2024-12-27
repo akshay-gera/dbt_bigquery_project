@@ -4,3 +4,5 @@ data_tests:
   - name: dim_listings_minimum_nights
     description: "Runs a singluar test on the dim_listings_cleansed to ensure that no record has minimum nights < 1. The test passes only when result is 0 of the query in that test"
     
+  - name: no_nulls_in_dim_listings
+    description: "Runs another singular test in each column of dim_listings_cleansed by running a custom macro created to check for null values"
