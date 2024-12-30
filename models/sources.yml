@@ -6,6 +6,12 @@ sources:
     tables:
         - name: Raw_Listings  # Table name (make sure it matches the table in BigQuery)
           description: "Details of airbnb listings"
+          columns:
+            - name: room_type
+              tests: 
+                - dbt_expectations.expect_column_distinct_count_to_equal:
+                    value: 4
+            
     
         - name: Raw_Hosts
           description: 'Details of hosts'
